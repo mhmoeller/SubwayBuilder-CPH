@@ -1,5 +1,5 @@
 // ============================================================================
-// DRAGGABLE DEBUG PANEL (Uændret)
+// DRAGGABLE DEBUG PANEL
 // ============================================================================
 /*(function() {
     const debugBox = document.createElement('div');
@@ -96,7 +96,7 @@ async function initMod() {
         console.log("Starting CPH mod initialization...");
         const api = await waitForAPI();
         
-        // 1. REGISTRER BYEN
+        // 1. REGISTER CITY
         api.registerCity({
             name: "Copenhagen",
             code: "CPH",
@@ -112,19 +112,19 @@ async function initMod() {
             maxZoom: 17
         });
 
-        // 2. KONFIGURER KORTET (HYBRID)
-        // Husk at pmtiles.exe SKAL køre på port 8081
+        // 2. CONFIGURE THE MAP (HYBRID)
+        // Remember pmtiles.exe NEEDS to run on port 8081
         const mapServerUrl = 'http://127.0.0.1:8081'; 
         
         if (api.map.setTileURLOverride) {
             api.map.setTileURLOverride({
                 cityCode: 'CPH',
                 
-                // VISUELT: Lokale PMTiles (Hurtigt & Flot)
+                // VISUAL Local PMTiles
                 tilesUrl: `${mapServerUrl}/general-tiles/{z}/{x}/{y}.mvt`,
                 tileType: 'vector', 
                 
-                // FUNDAMENT: CartoDB (Blokerer ikke spillet)
+                // FUNDAMENTAL: CartoDB (Doesn't block the game)
                 foundationTilesUrl: 'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
                 
                 maxZoom: 17,
