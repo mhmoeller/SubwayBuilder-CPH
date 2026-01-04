@@ -225,7 +225,7 @@ async function installPmtiles() {
                     // Look for pmtiles executable
                     if ((os.platform() === 'win32' && file === 'pmtiles.exe') || 
                         (os.platform() !== 'win32' && file === 'pmtiles') ||
-                        file.includes('pmtiles') && !file.endsWith('.zip') && !file.endsWith('.tar.gz')) {
+                        file.startsWith('pmtiles') && !file.endsWith('.zip') && !file.endsWith('.tar.gz')) {
                         
                         if (file !== finalExeName) {
                             fs.renameSync(filePath, finalExePath);
@@ -245,7 +245,7 @@ async function installPmtiles() {
                 const stat = fs.statSync(filePath);
                 
                 if (!stat.isDirectory() && 
-                    (file === 'pmtiles' || file.includes('pmtiles')) &&
+                    (file === 'pmtiles' || file.startsWith('pmtiles')) &&
                     !file.endsWith('.tar.gz')) {
                     
                     if (file !== finalExeName) {
