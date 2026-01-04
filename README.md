@@ -26,9 +26,25 @@ The installation process is automated to ensure all data files end up in the cor
 
 5. Run the Installer:
 
-6. Windows: Double-click install.bat inside the CPH folder.
-Mac/Linux: Open a terminal in the folder and run node install.js.
+#### Windows:
+Double-click install.bat inside the CPH folder.
+#### macOS:
 
+Method 1 (Recommended): Open Terminal, navigate to the CPH folder and run:
+```
+./install.sh
+```
+Method 2: Right-click install.sh, select "Open With" → "Terminal"
+
+Method 3: In Finder, open the CPH folder, then open Terminal and drag install.sh into the Terminal window, press Enter
+
+#### Linux:
+
+Open a terminal in the CPH folder and run:
+```
+chmod +x install.sh
+./install.sh
+```
 Wait for the script to finish. It will:
 Move the heavy data files (.gz) to the cities/data/CPH folder.
 Generate a serve.bat file for you.
